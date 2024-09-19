@@ -18,7 +18,7 @@ public class Account {
     @Column(name = "account_name")
     private String accountName;
     @Column(name = "money_amount")
-    private long moneyAmount;
+    private double moneyAmount;
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH,CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "customer_id")
     private Customer customer;

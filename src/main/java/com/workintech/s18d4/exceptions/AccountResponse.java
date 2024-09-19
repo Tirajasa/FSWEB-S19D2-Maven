@@ -1,4 +1,6 @@
 package com.workintech.s18d4.exceptions;
 
-public record AccountResponse() {
+import org.springframework.http.HttpStatus;
+
+public record AccountResponse(String message, HttpStatus httpStatus) {
 }

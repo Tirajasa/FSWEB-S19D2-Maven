@@ -4,10 +4,10 @@ import com.workintech.s18d4.entity.Address;
 
 import java.util.List;
 
-public interface AdressService {
+public interface AddressService {
 
    List<Address> findAll();
    Address find(long id);
    Address save(long id);
-
+   Address delete(long id);
 }
