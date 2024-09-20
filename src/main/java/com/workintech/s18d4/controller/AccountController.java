@@ -16,7 +16,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/workintech/accounts")
+@RequestMapping("/account")
 public class AccountController {
 
     private final AccountService accountService;
@@ -33,7 +33,7 @@ public class AccountController {
         return accountService.find(id);
     }
 
-  @PostMapping("/{customerId")
+  @PostMapping("/{customerId}")
     AccountResponse save(@PathVariable("customerId") long customerId,@RequestBody Account account){
         Customer customer=customerService.find(customerId);
         if(customer!=null){
@@ -43,7 +43,7 @@ public class AccountController {
         }else{
             throw new RuntimeException("no customer found");
         }
-        return new AccountResponse(account.getId(), account.getAccountName(), account.getMoneyAmount(),new CustomerResponse(customer.getId(),customer.getFirstName(),customer.getSalary()));
+        return new AccountResponse(account.getId(), account.getAccountName(), account.getMoneyAmount(),new CustomerResponse(customer.getId(),customer.getEmail(),customer.getSalary()));
     }
     @PutMapping("/{customerId}")
     AccountResponse update(@RequestBody Account account,@PathVariable("customerId")long customerId){

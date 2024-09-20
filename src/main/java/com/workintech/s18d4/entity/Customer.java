@@ -12,17 +12,18 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "bank", schema = "public")
+@Table(name = "customer", schema = "public")
 @Entity
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private long id;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column
+    @Column()
     private String email;
     @Column
     private Double salary;
@@ -37,9 +38,4 @@ public class Customer {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
     private List<Account> accounts=new ArrayList<>();
 
-    Customer(long id,String firstName,double salary){
-        this.id=id;
-        this.firstName=firstName;
-        this.salary=salary;
-    }
 }

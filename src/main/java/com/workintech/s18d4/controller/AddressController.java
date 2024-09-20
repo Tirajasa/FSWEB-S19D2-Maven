@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/workintech/address")
+@RequestMapping("/address")
 public class AddressController {
 }

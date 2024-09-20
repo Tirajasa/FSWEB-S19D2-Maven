@@ -1,7 +1,6 @@
 package com.workintech.s18d4.entity;
 
 
-import com.workintech.s18d4.exceptions.CustomerResponse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,12 +10,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "bank", schema = "public")
+@Table(name = "address", schema = "public")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "address_id")
     private long id;
-    @Column
+    @Column(name = "city")
     private String city;
     @Column
     private String country;
@@ -27,6 +27,6 @@ public class Address {
     @Column
     private Integer no;
 
-    @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST},mappedBy = "customer")
+    @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.PERSIST},mappedBy = "address")
     private Customer customer;
 }

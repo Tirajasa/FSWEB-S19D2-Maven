@@ -9,7 +9,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/workintech/customers")
+@RequestMapping("/customer")
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -23,7 +23,7 @@ public class CustomerController {
         return customerService.find(id);
     }
     @PostMapping
-    Customer save(Customer customer){
+    Customer save(@RequestBody Customer customer){
         return customerService.save(customer);
     }
 //    @PutMapping("/{id}")
