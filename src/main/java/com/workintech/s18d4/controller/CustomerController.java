@@ -20,15 +20,15 @@ public class CustomerController {
     }
     @GetMapping("/{id}")
     Customer get(@PathVariable("id") long id){
-        return customerService.findById(id);
+        return customerService.find(id);
     }
     @PostMapping
     Customer save(Customer customer){
         return customerService.save(customer);
     }
-    @PutMapping("/{id}")
-    Customer update(@PathVariable("id") long id){
-
-        return customerService.save(c)
-    }
+//    @PutMapping("/{id}")
+//    Customer update(@PathVariable("id") long id){
+//
+//        return customerService.save(c)
+//    }
 }

@@ -2,5 +2,5 @@ package com.workintech.s18d4.exceptions;
 
 import org.springframework.http.HttpStatus;
 
-public record CustomerResponse(String message, HttpStatus httpStatus) {
+public class CustomerResponse {
 }

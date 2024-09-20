@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service
+
 public interface CustomerService {
 
     List<Customer> findAll();
-    Customer findById(long id);
+    Customer find(long id);
     Customer save(Customer customer);
     Customer delete(long id);
     Customer update(long id);

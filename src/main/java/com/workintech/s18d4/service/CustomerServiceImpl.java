@@ -1,6 +1,6 @@
 package com.workintech.s18d4.service;
 
-import com.workintech.s18d4.dao.CustomerDao;
+import com.workintech.s18d4.dao.CustomerRepository;
 import com.workintech.s18d4.entity.Customer;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CustomerServiceImpl implements CustomerService{
 
-    private final CustomerDao customerDao;
+    private final CustomerRepository customerDao;
 
     @Override
     public List<Customer> findAll() {
@@ -19,7 +19,7 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public Customer findById(long id) {
+    public Customer find(long id) {
         return customerDao.findById(id).orElse(null) ;
     }
 
@@ -30,18 +30,18 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Customer delete(long id) {
-        Customer customer=findById(id);
+        Customer customer=find(id);
        customerDao.delete(customer);
         return customer;
     }
 
     @Override
     public Customer update(long id) {
-        Customer customer=findById(id);
+        Customer customer=find(id);
         if(customer!=null){
             customer.setFirstName("newFN");
             customer.setLastName("newLN");
-            customer.setSalary((long) 300);
+            customer.setSalary(300.00);
         }
         return customer;
     }

@@ -1,5 +1,6 @@
 package com.workintech.s18d4.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +17,7 @@ import java.util.List;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -24,7 +25,7 @@ public class Customer {
     @Column
     private String email;
     @Column
-    private Long salary;
+    private Double salary;
 
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -32,8 +33,13 @@ public class Customer {
     private Address address;
 
 
-
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
     private List<Account> accounts=new ArrayList<>();
 
+    Customer(long id,String firstName,double salary){
+        this.id=id;
+        this.firstName=firstName;
+        this.salary=salary;
+    }
 }

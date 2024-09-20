@@ -1,6 +1,6 @@
 package com.workintech.s18d4.service;
 
-import com.workintech.s18d4.dao.AddressDao;
+import com.workintech.s18d4.dao.AddressRepository;
 import com.workintech.s18d4.entity.Address;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class AddressServiceImpl implements AddressService {
 
-    private final AddressDao addressDao;
+    private final AddressRepository addressDao;
 
     @Override
     public List<Address> findAll() {
